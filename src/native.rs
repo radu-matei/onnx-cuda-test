@@ -39,9 +39,11 @@ fn run(model: Vec<u8>, image: String) {
         .unwrap();
 
     let mut session = environment
-        .new_session_builder()
+        .new_owned_session_builder()
         .unwrap()
         .with_optimization_level(GraphOptimizationLevel::Basic)
+        .unwrap()
+        .use_cuda()
         .unwrap()
         .with_model_from_memory(model)
         .unwrap();
