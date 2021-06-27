@@ -1,0 +1,21 @@
+[package]
+name = "test"
+version = "0.1.0"
+authors = ["Radu M <root@radu.sh>"]
+edition = "2018"
+
+
+[dependencies]
+anyhow = "1.0"
+image = { version = "0.23.14", default-features = false, features = ["gif", "jpeg", "ico", "png", "pnm", "tga", "tiff", "webp", "bmp", "hdr", "dxt", "dds", "farbfeld"]  }
+ndarray = "0.15"
+tract-onnx = { version = "0.14" }
+onnxruntime = { git = "https://github.com/radu-matei/onnxruntime-rs", branch = "cuda" }
+
+[[bin]]
+name = "tract"
+path = "src/tract.rs"
+
+[[bin]]
+name = "native"
+path = "src/native.rs"
